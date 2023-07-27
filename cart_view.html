@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ... Your existing head section ... -->
+</head>
+<body>
+    <div class="cart-container">
+        <h1>Shopping Cart</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Size</th>
+                    <th>Quantity</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamically populate cart items here using JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Function to fetch cart items and display them in the table
+            function fetchCartItems() {
+                $.ajax({
+                    type: 'GET',
+                    url: 'get_cart_items.php',
+                    dataType: 'json', // Add this line
+                    success: function(data) {
+                        if (data.status === 'success') {
+                            // Loop through the cart items and append them to the table
+                            data.items.forEach(function(item) {
+                                var row = `<tr>
+                                    <td>${item.product_name}</td>
+                                    <td>${item.size}</td>
+                                    <td>${item.quantity}</td>
+                                    <td><button onclick="buyNow('${item.product_name}', ${item.quantity})">Buy Now</button></td>
+                                </tr>`;
+                                $('tbody').append(row);
+                            });
+                        } else {
+                            // Handle error if needed
+                            alert('Error fetching cart items!');
+                        }
+                    },
+                    error: function() {
+                        // Handle error if needed
+                        alert('Error

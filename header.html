@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>E-commerce Website</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
+  <script src="GLTFLoader.js"></script>
+  <script src="three.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-container">
+      <div class="header-logo">
+        <img src="download (2).png" alt="Logo">
+      </div>
+      <nav class="header-menu">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#fproducts">Featured Products</a></li>
+          <li><a href="#new-arrivals">New Arrivals</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact-form">Contact</a></li>
+          <li class="add-to-cart"><a href="#cart" class="add-to-cart-btn">Add to Cart</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  
+
+<!-- Hero Section  -->
+  <div class="hero-section">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-content">
+      <h1>Welcome to our E-commerce Store!</h1>
+      <p>Discover a wide range of products at great prices.</p>
+      <a href="#" class="hero-button">Shop Now</a>
+    </div>
+  
+  </div>
+
+
+  <!-- End Hero Section -->
+
+
+<!-- About Section -->
+<section id="about"></section>
+<h1>About Us</h1>
+<section class="section">
+  <div class="section-content">
+    <div class="section-text">
+      <h2>About Us</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac lorem neque. Phasellus ac sem non neque accumsan viverra in sed elit. Etiam aliquet augue id nisl aliquam, ut lacinia odio interdum.</p>
+      <p>Vestibulum nec velit et mauris varius dapibus. In at sem non urna aliquet lacinia sed vitae nulla. Proin dapibus congue lectus, nec feugiat lectus egestas id. Mauris et luctus enim.</p>
+    </div>
+    <div class="section-images">
+      <img src="download (2).jpeg" alt="Image 2">
+    </div>
+  </div>
+</section>
+
+<!-- End About Section -->
+
+  <main>
+    
+    <section id="fproducts">
+    <section class="product-section">
+      <h2>Featured Products</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="product1.jpeg" alt="Product 1">
+          <h3>Product 1</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <button class="myButton" data-url="/product1.html">Buy Now</button>
+        </div>
+        <div class="product-card">
+          <img src="product2.jpeg" alt="Product 2">
+          <h3>Product 2</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <button class="myButton" data-url="/product1.html">Buy Now</button>
+        </div>
+        <div class="product-card">
+          <img src="product3.jpeg" alt="Product 3">
+          <h3>Product 3</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <button class="myButton" data-url="/product1.html">Buy Now</button>
+        </div>
+        <div class="product-card">
+          <img src="product4.jpeg" alt="Product 4">
+          <h3>Product 4</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <button class="myButton" data-url="/product1.html">Buy Now</button>
+        </div>
+      </section>
+
+    <!-- script -->
+    <script>
+      // Get all elements with the class 'myButton'
+      const buttons = document.querySelectorAll('.myButton');
+
+      // Function to redirect to the desired page
+      function redirectToPage(event) {
+          // Get the URL from the 'data-url' attribute of the clicked button
+          const url = event.target.getAttribute('data-url');
+          if (url) {
+              window.location.href = url;
+          }
+      }
+
+      // Add click event listeners to all buttons
+      buttons.forEach(button => {
+          button.addEventListener('click', redirectToPage);
+      });
+  </script>
+    
+
+
+        <!-- Add more product cards as needed -->
+      </div>
+    </section>
+    </section>
+
+<!-- End Product  section  -->
+
+  <!-- Newsletter section -->
+
+
+<section class="sub-section">
+  <canvas id="sub-canvas"></canvas>
+  <div class="sub-content">
+    <h1>Stay in the Loop with Our Newsletter</h1>
+    <p>Get the latest updates, exclusive offers, and news delivered directly to your inbox.</p>
+    <form class="newsletter-form">
+      <input type="email" placeholder="Your email address" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- Pop Up product section -->
+<section id="new-arrivals">
+<h1> New Arrivals</h1>
+<div class="pop-products-section">
+  <div class="pop-product">
+    <img src="image (1).png" alt="Product 1">
+    <div class="product-details">
+      <h3>Product 1</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor suscipit turpis, in laoreet risus venenatis eu.</p>
+      <a href="#" class="buy-button">Buy Now</a>
+    </div>
+  </div>
+  <div class="pop-product">
+    <img src="image (2).png" alt="Product 2">
+    <div class="product-details">
+      <h3>Product 2</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor suscipit turpis, in laoreet risus venenatis eu.</p>
+      <a href="#" class="buy-button">Buy Now</a>
+    </div>
+  </div>
+  <div class="pop-product">
+    <img src="image-preview.jpg" alt="Product 3">
+    <div class="product-details">
+      <h3>Product 3</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor suscipit turpis, in laoreet risus venenatis eu.</p>
+      <a href="#" class="buy-button">Buy Now</a>
+    </div>
+  </div>
+  <div class="pop-product">
+    <img src="image.png" alt="Product 4">
+    <div class="product-details">
+      <h3>Product 4</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor suscipit turpis, in laoreet risus venenatis eu.</p>
+      <a href="#" class="buy-button">Buy Now</a>
+    </div>
+  </div>
+</div>
+
+<div id="pop-modal">
+  <span class="pop-close">&times;</span>
+  <img class="pop-modal-content" id="pop-modal-image" src="">
+  <div class="product-details">
+    <h3></h3>
+    <p></p>
+    <a href="#" class="buy-button">Buy Now</a>
+  </div>
+</div>
+</section>
+
+<!-- Products Gallery -->
+<section id="gallery">
+<h1> Gallery </h1>
+<div class="gallery">
+  <div class="item">
+      <img src="sneaker-that-has-word-nike-it.jpg" alt="Product 1">
+      <div class="overlay">
+          <h3>Product 1</h3>
+          <p>Description of Product 1</p>
+          <a href="#">Buy Now</a>
+      </div>
+  </div>
+  <div class="item">
+      <img src="shoes-1897708_1280.jpg" alt="Product 2">
+      <div class="overlay">
+          <h3>Product 2</h3>
+          <p>Description of Product 2</p>
+          <a href="#">Buy Now</a>
+      </div>
+  </div>
+  <div class="item">
+      <img src="SeekPng.com_new-balance-logo-png_4869143.png" alt="Product 3">
+      <div class="overlay">
+          <h3>Product 3</h3>
+          <p>Description of Product 3</p>
+          <a href="#">Buy Now</a>
+      </div>
+  </div>
+  <div class="item">
+      <img src="necktie-1284463_1280.jpg" alt="Product 4">
+      <div class="overlay">
+          <h3>Product 4</h3>
+          <p>Description of Product 4</p>
+          <a href="#">Buy Now</a>
+      </div>
+  </div>
+  <div class="item">
+      <img src="fashion-1284496_1280.jpg" alt="Product 5">
+      <div class="overlay">
+          <h3>Product 5</h3>
+          <p>Description of Product 5</p>
+          <a href="#">Buy Now</a>
+      </div>
+  </div>
+  <div class="item">
+    <img src="shoes-1433925_1280.jpg" alt="Product 6">
+    <div class="overlay">
+        <h3>Product 5</h3>
+        <p>Description of Product 6</p>
+        <a href="#">Buy Now</a>
+    </div>
+</div>
+</div>
+</section>
+
+<!-- Ending of product gallery -->
+
+
+<!-- Review Section -->
+<h1 class="testimonial-title">Client Testimonials</h1>
+<div class="reviews">
+  <div class="review">
+      <div class="review-content">
+          <img src="download.jpeg" alt="Client 1" class="client-image">
+          <p class="review-text">
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet neque placerat, faucibus magna vitae, tempus urna. Aliquam lacinia, arcu vel consectetur vestibulum."
+          </p>
+          <h3 class="client-name">John Doe</h3>
+          <span class="client-designation">CEO, Company Name</span>
+      </div>
+  </div>
+  <div class="review">
+      <div class="review-content">
+          <img src="images.jpeg" alt="Client 2" class="client-image">
+          <p class="review-text">
+              "Vestibulum efficitur, mauris vel scelerisque fermentum, turpis nisl rutrum lectus, vitae posuere mi turpis ac metus. In hac habitasse platea dictumst."
+          </p>
+          <h3 class="client-name">Jane Smith</h3>
+          <span class="client-designation">Marketing Manager, Company Name</span>
+      </div>
+  </div>
+  <!-- Add more reviews here -->
+</div>
+
+
+<!-- End Review Section -->
+
+
+<!-- Contact form  -->
+<h1> Contact Form</h1>
+<section id="contact-form" >
+<div class="container">
+  <div class="contact-image">
+    <img src="contact image.jpeg" alt="Contact Image">
+  </div>
+  <div class="contact-form">
+    <h2>Contact Us</h2>
+    <form action="submit.php" method="POST">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Submit">
+      </div>
+    </form>
+    <div class="contact-info">
+      <h3>Contact Information</h3>
+      <p><i class="fas fa-envelope"></i> Email: contact@example.com</p>
+      <p><i class="fas fa-phone"></i> Phone: +1 123 456 7890</p>
+      <p><i class="fas fa-map-marker-alt"></i> Address: 123 Main St, City, Country</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- End Contact form -->
+
+
+
+
+
+  </main>
+  <footer class="footer">
+    <div class="footer-logo">
+      <a href="#"><img src="download.png" alt="Logo"></a>
+    </div>
+    <div class="footer-menu">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#fproducts">Featured Prdoucts</a></li>
+        <li><a href="#new-arrivals">New Arrivals</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact-form">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-subscribe">
+      <form action="#" method="post">
+        <input type="email" name="email" placeholder="Subscribe to our newsletter">
+        <input type="submit" value="Subscribe">
+      </form>
+    </div>
+    <div class="footer-disclaimer">
+      &copy; 2023 Your Company. All rights reserved. | Terms of Service | Privacy Policy
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

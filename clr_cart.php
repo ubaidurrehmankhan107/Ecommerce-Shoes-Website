@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <!-- Add your CSS styles here -->
+    <link rel="stylesheet" type="text/css" href="product1.css">
+</head>
+<body>
+    <div class="product-page-container">
+        <div class="product-image">
+            <img src="product1.jpeg" alt="Product Image" width="400">
+        </div>
+        <div class="product-details">
+            <h1>Gucci Bag</h1>
+            <p>High-Quality Materials: Gucci bags are known for their premium quality materials, including luxurious leather, canvas, and various fabrics.</p>
+            <p>Price: $99.99</p>
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" value="1">
+            <br>
+            <button onclick="addToCart()">Add to Cart</button>
+            <!-- Add the "Clear Cart" button here -->
+            <button onclick="clearCart()">Clear Cart</button>
+            <div class="product-rating">
+                <span>Rating: 4.8 (200 reviews)</span>
+                <!-- Add star rating display here -->
+            </div>
+            <div class="product-size">
+                <label for="size">Size:</label>
+                <select id="size" name="size">
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function addToCart() {
+            const productName = "Gucci Bag";
+            const quantity = parseInt(document.getElementById('quantity').value, 10); // Parse the value as an integer
+            const size = document.getElementById('size').value;
+    
+            // Perform an AJAX POST request to the cart.php backend
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'cart.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        const response = JSON.parse(xhr.responseText);
+                        if (response.status === 'success') {
+                            // Success: Product added to cart
+                            alert("Product added to cart!");
+                        } else {
+                            // Error: Handle the error (You may want to implement proper error handling here)
+                            alert("Error adding product to cart!");
+                        }
+                    } else {
+                        // Error: Handle the error (You may want to implement proper error handling here)
+                        alert("Error adding product to cart!");
+                    }
+                }
+            };
+            xhr.send(`action=add&product_name=${encodeURIComponent(productName)}&quantity=${quantity}&size=${size}`);
+        }
+
+        function clearCart() {
+            // Perform an AJAX POST request to the cart.php backend to clear the cart
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'cart.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        // Success: Cart cleared
+                        alert("Cart cleared!");
+                        // Update the cart display or refresh the page to show an empty cart
+                    } else {
+                        // Error: Handle the error (You may want to implement proper error handling here)
+                        alert("Error clearing cart!");
+                    }
+                }
+            };
+            xhr.send(`action=clear`);
+        }
+    </script>
+</body>
+</html>
